@@ -4,14 +4,15 @@
 #
 Name     : mvn-nimbus-jose-jwt
 Version  : 3.9
-Release  : 1
+Release  : 2
 URL      : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source0  : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.jar
 Source2  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.pom
-Source3  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
-Source4  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
-Source5  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
+Source3  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.jar
+Source4  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
+Source5  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
+Source6  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -41,13 +42,16 @@ mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt
 cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
 
 
 %files
@@ -57,6 +61,7 @@ cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jos
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.jar
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.pom
+/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.jar
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
