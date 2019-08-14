@@ -4,7 +4,7 @@
 #
 Name     : mvn-nimbus-jose-jwt
 Version  : 3.9
-Release  : 2
+Release  : 3
 URL      : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source0  : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.jar
@@ -13,10 +13,13 @@ Source3  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.9/nimbu
 Source4  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
 Source5  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
 Source6  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
+Source7  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.jar
+Source8  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-nimbus-jose-jwt-data = %{version}-%{release}
+Requires: mvn-nimbus-jose-jwt-license = %{version}-%{release}
 
 %description
 Nimbus JOSE + JWT
@@ -30,11 +33,22 @@ Group: Data
 data components for the mvn-nimbus-jose-jwt package.
 
 
+%package license
+Summary: license components for the mvn-nimbus-jose-jwt package.
+Group: Default
+
+%description license
+license components for the mvn-nimbus-jose-jwt package.
+
+
 %prep
+%setup -q -n connect2id-nimbus-jose-jwt-544cff988764
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-nimbus-jose-jwt
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-nimbus-jose-jwt/LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.10
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.jar
 
@@ -53,6 +67,12 @@ cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jos
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1
 cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.pom
+
 
 %files
 %defattr(-,root,root,-)
@@ -65,3 +85,9 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/nimbusds/nimbus-jos
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.pom
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar
 /usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.pom
+/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.jar
+/usr/share/java/.m2/repository/com/nimbusds/nimbus-jose-jwt/4.41.2/nimbus-jose-jwt-4.41.2.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-nimbus-jose-jwt/LICENSE.txt
