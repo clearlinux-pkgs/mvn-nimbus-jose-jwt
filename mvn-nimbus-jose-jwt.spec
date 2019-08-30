@@ -4,7 +4,7 @@
 #
 Name     : mvn-nimbus-jose-jwt
 Version  : 3.9
-Release  : 3
+Release  : 4
 URL      : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source0  : https://bitbucket.org/connect2id/nimbus-jose-jwt/get/3.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/3.10/nimbus-jose-jwt-3.10.jar
